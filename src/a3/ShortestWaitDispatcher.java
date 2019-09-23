@@ -14,7 +14,7 @@ public class ShortestWaitDispatcher implements Dispatcher {
 	public Driver chooseDriver(Driver[] availableDrivers, RideRequest request) {
 		for (int i = 0; i < availableDrivers.length; i++) {
 			Position driver_position = availableDrivers[i].getVehicle().getPosition();
-			int wait_time = request.getClientPosition().getManhattanDistanceTo(driver_position);
+			int wait_time = ((RideRequestImpl)request).getClientOriginalPosition().getManhattanDistanceTo(driver_position);
 			
 			if (wait_time < _min_wait) {
 				_min_wait = wait_time;

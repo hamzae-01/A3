@@ -3,7 +3,7 @@ package a3;
 public class RideRequestImpl implements RideRequest {
 
 	Position _clientPosition;
-	//Position _clientOriginalPosition;
+	Position _clientOriginalPosition;
 	Position _destination;
 	boolean _isComplete;
 	CompletedRide _completedRide;
@@ -13,13 +13,13 @@ public class RideRequestImpl implements RideRequest {
 		if (clientPosition == null) {
 			throw new RuntimeException("Cannot have null Position");
 		}
-		//this._clientOriginalPosition = clientPosition;
+		// this._clientOriginalPosition = clientPosition;
 		if (destination == null) {
 			throw new RuntimeException("Cannot have null Destination Position");
 		}
 
 		this._clientPosition = clientPosition;
-		// this._clientOriginalPosition = clientPosition;
+		this._clientOriginalPosition = clientPosition;
 		this._destination = destination;
 		this._isComplete = false;
 		this._completedRide = null;
@@ -30,10 +30,10 @@ public class RideRequestImpl implements RideRequest {
 		return _clientPosition;
 	}
 
-	/*public Position getClientOriginalPosition() {
+	public Position getClientOriginalPosition() {
 
 		return _clientOriginalPosition;
-	}*/
+	}
 
 	public Position getDestination() {
 
