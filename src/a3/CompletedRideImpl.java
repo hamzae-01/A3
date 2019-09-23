@@ -39,24 +39,25 @@ public class CompletedRideImpl implements CompletedRide {
 	public double getCost() {
 		double Wtime = getWaitTime();
 		double Rtime = _request.getRideTime();
-		return (Rtime/2) + (Wtime/10);
+		return (Rtime * 0.5) + (Wtime * 0.1);
 	}
 
 	
 	public double getPrice() {
 		int Wtime = getWaitTime();
+		int Rtime = _request.getRideTime();
 		
 		if (Wtime<25) {
-			return Double.valueOf((_request.getRideTime()*2.5));
+			return Double.valueOf(Rtime*2.5);
 		}
 		else if (Wtime>=25 && Wtime<= 49) {
-			return Double.valueOf((_request.getRideTime()*2));
+			return Double.valueOf(Rtime*2);
 		}
 		else if (Wtime>=50 && Wtime<= 99) {
-			return Double.valueOf(_request.getRideTime());
+			return Double.valueOf(Rtime);
 		}
 		else if (Wtime>=100) {
-			return Double.valueOf((_request.getRideTime()*.5));
+			return Double.valueOf(Rtime*.5);
 		}
 		else {
 			return 0;

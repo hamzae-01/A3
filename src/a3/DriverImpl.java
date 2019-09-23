@@ -51,6 +51,10 @@ public class DriverImpl implements Driver {
 	}
 
 	public void setVehicle(Vehicle v) {
+		if (v == null) {
+			throw new RuntimeException("v is null");
+		}
+		
 		_vehicle = v;
 
 	}

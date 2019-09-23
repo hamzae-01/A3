@@ -62,7 +62,10 @@ public class VehicleImpl implements Vehicle {
 	}*/
 
 	public void moveToPosition(Position p) {
-
+		if (p == null) {
+			throw new RuntimeException("p is null");
+		}
+		
 		_mileage += _position.getManhattanDistanceTo(p);
 		_position = p;
 

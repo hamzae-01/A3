@@ -10,23 +10,17 @@ public class RideRequestImpl implements RideRequest {
 
 	public RideRequestImpl(Position clientPosition, Position destination) {
 
-		if (clientPosition != null) {
-			this._clientPosition = clientPosition;
-
-		} else {
+		if (clientPosition == null) {
 			throw new RuntimeException("Cannot have null Position");
 		}
 		//this._clientOriginalPosition = clientPosition;
-		if (destination != null) {
-			this._destination = destination;
-
-		} else {
+		if (destination == null) {
 			throw new RuntimeException("Cannot have null Destination Position");
 		}
 
-		// this._clientPosition = clientPosition;
-		// this. _clientOriginalPosition = clientPosition;
-		// this._destination = destination;
+		this._clientPosition = clientPosition;
+		// this._clientOriginalPosition = clientPosition;
+		this._destination = destination;
 		this._isComplete = false;
 		this._completedRide = null;
 	}
