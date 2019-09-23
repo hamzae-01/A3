@@ -2,27 +2,31 @@ package a3;
 
 public class ShortestWaitDispatcher implements Dispatcher {
 	
-	private int _min_wait_idx;
-	private int _min_wait;
+	//private int _min_wait_idx;
+	//private int _min_wait;
+
 	
 	public ShortestWaitDispatcher() {
-		_min_wait = Integer.MAX_VALUE;
-		_min_wait_idx = -1;
+		/*_min_wait = Integer.MAX_VALUE;
+		_min_wait_idx = -1;*/
 	}
 
 	@Override
 	public Driver chooseDriver(Driver[] availableDrivers, RideRequest request) {
+		int smallestDistance = 100000;
+		int index = -1;
 		for (int i = 0; i < availableDrivers.length; i++) {
 			Position driver_position = availableDrivers[i].getVehicle().getPosition();
-			int wait_time = ((RideRequestImpl)request).getClientOriginalPosition().getManhattanDistanceTo(driver_position);
+			int Mandistance = ((RideRequestImpl)request).getClientOriginalPosition().getManhattanDistanceTo(driver_position);
 			
-			if (wait_time < _min_wait) {
-				_min_wait = wait_time;
-				_min_wait_idx = i;
+			if (Mandistance < smallestDistance) {
+				smallestDistance = i;
+				Mandistance = smallestDistance;
+				
 			}
 		}
 		
-		return availableDrivers[_min_wait_idx];
+		return availableDrivers[smallestDistance];
 	}
 
 }
