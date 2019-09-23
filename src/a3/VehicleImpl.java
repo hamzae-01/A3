@@ -7,12 +7,12 @@ public class VehicleImpl implements Vehicle{
 	String _plate;
 	int _mileage;
 	Position _position;
-	Position _originalPosition;
+	Position _originalPosition; //added this to complete completed ride
 	
 	public VehicleImpl(String make, String model, String plate, Position position) {
 		
 		if(make == null) {
-			throw new RuntimeException("fistName is null");
+			throw new RuntimeException("firstName is null");
 			}
 			if(model == null) {
 			throw new RuntimeException("lastName is null");
