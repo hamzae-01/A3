@@ -41,5 +41,6 @@ public interface RideRequest {
 	boolean getIsComplete();
 	CompletedRide complete(Driver driver);
 	int getRideTime();
+	Object getClientOriginalPosition();
 
 }
