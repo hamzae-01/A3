@@ -37,32 +37,28 @@ public class CompletedRideImpl implements CompletedRide {
 
 
 	public double getCost() {
-		double Wtime = getWaitTime();
-		double Rtime = _request.getRideTime();
-		return (Rtime * 0.5) + (Wtime * 0.1);
+		return (((double) (.50 * getRequest().getRideTime())) + ((double) (.10 *getWaitTime())));
 	}
 
 	
 	public double getPrice() {
-		int Wtime = getWaitTime();
-		int Rtime = _request.getRideTime();
-		
-		if (Wtime<25) {
-			return Double.valueOf(Rtime*2.5);
+		// TODO Auto-generated method stub
+		double wait = getWaitTime();
+		double r = getRequest().getRideTime();
+
+
+		if (getWaitTime() < 25) {
+		return r * 2.5;
+		} else if (getWaitTime() >= 25 && getWaitTime() <= 49) {
+		return r * 2;
+		} else if (getWaitTime() >= 50 && getWaitTime() <= 99) {
+		return r ;
+		} else if (getWaitTime() >= 100) {
+		return r * .5;
+		} else {
+		return 0;
 		}
-		else if (Wtime>=25 && Wtime<= 49) {
-			return Double.valueOf(Rtime*2);
 		}
-		else if (Wtime>=50 && Wtime<= 99) {
-			return Double.valueOf(Rtime);
-		}
-		else if (Wtime>=100) {
-			return Double.valueOf(Rtime*.5);
-		}
-		else {
-			return 0;
-		}
-	}
 
 	
 	public double getProfit() {
