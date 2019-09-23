@@ -7,6 +7,7 @@ public class VehicleImpl implements Vehicle{
 	String _plate;
 	int _mileage;
 	Position _position;
+	Position _originalPosition;
 	
 	public VehicleImpl(String make, String model, String plate, Position position) {
 		
@@ -57,6 +58,11 @@ public class VehicleImpl implements Vehicle{
 	public Position getPosition() {
 		// TODO Auto-generated method stub
 		return _position;
+	}
+	
+	public Position getOriginalPosition() {
+		// TODO Auto-generated method stub
+		return _originalPosition;
 	}
 
 	@Override

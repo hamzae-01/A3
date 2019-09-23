@@ -26,7 +26,7 @@ public class CompletedRideImpl implements CompletedRide {
 	
 	public int getWaitTime() {
 		
-		return _request.getClientOriginalPosition().getManhattanDistanceTo(_driver.getVehicle().getOriginalPostition);
+		return ((RideRequestImpl)_request).getClientOriginalPosition().getManhattanDistanceTo(((VehicleImpl)_driver.getVehicle()).getOriginalPosition());
 	}
 
 	

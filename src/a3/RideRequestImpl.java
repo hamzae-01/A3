@@ -33,11 +33,16 @@ public class RideRequestImpl implements RideRequest{
 
 	
 	public Position getClientPosition() {
-		
+
 		return _clientPosition;
 	}
 
 	
+	public Position getClientOriginalPosition() {
+
+		return _clientOriginalPosition;
+	}
+
 	public Position getDestination() {
 		
 		return _destination;
