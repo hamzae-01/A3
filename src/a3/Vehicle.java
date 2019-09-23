@@ -28,12 +28,10 @@ package a3;
  */
 
 public interface Vehicle {
-	Object getOriginalPostition = null;
 	String getMake();
 	String getModel();
 	String getPlate();
 	int getMileage();
 	Position getPosition();
 	void moveToPosition(Position p);
-	Position getOriginalPosition();
 }
