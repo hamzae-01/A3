@@ -54,7 +54,7 @@ public class RideRequestImpl implements RideRequest{
 		return _isComplete;
 	}
 
-	@Override
+	
 	public CompletedRide complete(Driver driver) {
 		if (getIsComplete() == false) {
 			_isComplete = true;
