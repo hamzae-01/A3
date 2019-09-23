@@ -2,62 +2,62 @@ package a3;
 
 public class CompletedRideImpl implements CompletedRide {
 
-	private RideRequest Request;
-	private Driver Driver;
-	private int WaitTime;
-	private int TotalTime;
-	private Position driverposition;
-	private Position clientposition;
-	private double Cost;
-	private double Price;
-	private double Profit;
+	private RideRequest _Request;
+	private Driver _Driver;
+	private int _WTime;
+	private int _TTime;
+	private Position _driverPosition;
+	private Position _clientPosition;
+	private double _cost;
+	private double _price;
+	private double _profit;
 
 	public CompletedRideImpl(RideRequest request, Driver driver) {
 
-		this.Request = request;
-		this.Driver = driver;
-		this.WaitTime = WaitTime;
-		this.driverposition = driver.getVehicle().getPosition();
-		this.clientposition = request.getClientPosition();
+		this._Request = request;
+		this._Driver = driver;
+		this._WTime = _WTime;
+		this._driverPosition = driver.getVehicle().getPosition();
+		this._clientPosition = request.getClientPosition();
 
-		this.TotalTime = TotalTime;
-		this.Cost = Cost;
-		this.Price = Price;
-		this.Profit = Profit;
+		this._TTime = _TTime;
+		this._cost = _cost;
+		this._price = _price;
+		this._profit = _profit;
 
 	}
 
-	@Override
+	
 	public RideRequest getRequest() {
-// TODO Auto-generated method stub
-		return Request;
+
+		return _Request;
 	}
 
-	@Override
+	
 	public Driver getDriver() {
-// TODO Auto-generated method stub
-		return Driver;
+
+		return _Driver;
 	}
 
 	public int getWaitTime() {
-// TODO Auto-generated method stub
-		return clientposition.getManhattanDistanceTo(driverposition);
+
+		return _clientPosition.getManhattanDistanceTo(_driverPosition);
 	}
 
 	public int getTotalTime() {
-// TODO Auto-generated method stub
-		return (Request.getRideTime() + getWaitTime());
+		
+		return (_Request.getRideTime() + getWaitTime());
 	}
 
 	public double getCost() {
-// TODO Auto-generated method stub
+
 
 		return (((double) (.50 * getRequest().getRideTime())) + ((double) (.10 * getWaitTime())));
 
 	}
 
 	public double getPrice() {
-// TODO Auto-generated method stub
+
 		double wait = getWaitTime();
 		double r = getRequest().getRideTime();
 
