@@ -7,7 +7,7 @@ public class VehicleImpl implements Vehicle {
 	String _plate;
 	int _mileage;
 	Position _position;
-	Position _originalPosition; // added this to complete completed ride
+	//Position _originalPosition; // added this to complete completed ride
 
 	public VehicleImpl(String make, String model, String plate, Position position) {
 
@@ -56,10 +56,10 @@ public class VehicleImpl implements Vehicle {
 		return _position;
 	}
 
-	public Position getOriginalPosition() {
+	/*public Position getOriginalPosition() {
 
 		return _originalPosition;
-	}
+	}*/
 
 	public void moveToPosition(Position p) {
 

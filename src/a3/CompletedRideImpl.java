@@ -26,7 +26,7 @@ public class CompletedRideImpl implements CompletedRide {
 	
 	public int getWaitTime() {
 		
-		return ((RideRequestImpl)_request).getClientOriginalPosition().getManhattanDistanceTo(((VehicleImpl)_driver.getVehicle()).getOriginalPosition());
+		return _driver.getVehicle().getPosition().getManhattanDistanceTo(_request.getClientPosition());
 	}
 
 	
@@ -44,16 +44,18 @@ public class CompletedRideImpl implements CompletedRide {
 
 	
 	public double getPrice() {
-		if (getWaitTime()<25) {
-			return Double.valueOf((_request.getRideTime()*25));
+		int Wtime = getWaitTime();
+		
+		if (Wtime<25) {
+			return Double.valueOf((_request.getRideTime()*2.5));
 		}
-		else if (getWaitTime()>=25 && getWaitTime()<= 49) {
+		else if (Wtime>=25 && Wtime<= 49) {
 			return Double.valueOf((_request.getRideTime()*2));
 		}
-		else if (getWaitTime()>=50 && getWaitTime()<= 99) {
-			return Double.valueOf((_request.getRideTime()*1));
+		else if (Wtime>=50 && Wtime<= 99) {
+			return Double.valueOf(_request.getRideTime());
 		}
-		else if (getWaitTime()>=100) {
+		else if (Wtime>=100) {
 			return Double.valueOf((_request.getRideTime()*.5));
 		}
 		else {
@@ -63,8 +65,8 @@ public class CompletedRideImpl implements CompletedRide {
 
 	
 	public double getProfit() {
-		
-		return (getWaitTime() + _request.getRideTime());
+
+		return (getPrice() - getCost());
 	}
 
 }

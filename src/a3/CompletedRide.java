@@ -12,7 +12,7 @@ package a3;
  *    
  * getWaitTime()
  *    Returns the Manhattan distance between the position of the driver's vehicle
- *    and the position of the client making the request at the time that the
+ *    and the position _of the client making the request at the time that the
  *    ride was completed. This is intended to be a measure of how long the
  *    client needed to wait for the driver to arrive.
  *    
